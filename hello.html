@@ -1,9 +1,66 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Hello from Terraform!</title>
+    <title>Hello from Terraform! 💕</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Comic Sans MS', 'Trebuchet MS', cursive, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 60px 40px;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+        }
+
+        h1 {
+            color: #ff6b9d;
+            font-size: 3em;
+            margin: 0 0 20px 0;
+            animation: bounce 2s infinite;
+        }
+
+        p {
+            color: #764ba2;
+            font-size: 1.2em;
+            margin: 15px 0;
+            line-height: 1.6;
+        }
+
+        .emoji-container {
+            font-size: 4em;
+            margin: 20px 0;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+    </style>
 </head>
 <body>
-<h1>It works! 🚀</h1>
+    <div class="container">
+        <div class="emoji-container">✨💫⭐</div>
+        <h1>It works! 🚀</h1>
+        <p>You've deployed something amazing with Terraform! 🎉</p>
+        <p>So proud of you! 💕</p>
+        <div class="emoji-container">🎊🌈💖</div>
+    </div>
 </body>
 </html>
