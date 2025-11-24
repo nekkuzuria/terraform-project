@@ -28,5 +28,7 @@ jobs:
                 git clone git@github.com:nekkuzuria/terraform-project.git
 
               sudo cp terraform-project/hello.html /var/www/html/index.html
+              sudo systemctl restart httpd
+
               sudo rm -rf terraform-project
           EOF
