@@ -8,6 +8,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment: AWSRestartDeployer
 
     steps:
       - name: Checkout repository
@@ -20,7 +21,7 @@ jobs:
 
       - name: Deploy to EC2
         run: |
-          ssh -o StrictHostKeyChecking=no ec2-user@${{ secrets.EC2_HOST }} << 'EOF'
+          ssh -o StrictHostKeyChecking=no ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
           
               chmod 600 ~/.ssh/deploy-key
               GIT_SSH_COMMAND="ssh -i ~/.ssh/deploy-key -o StrictHostKeyChecking=no" \
