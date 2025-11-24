@@ -1,66 +1,222 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Hello from Terraform! 💕</title>
+    <title>TERRAFORM PARTY! 🎉🎊🎈</title>
     <style>
+        * { margin: 0; padding: 0; }
+
         body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            font-family: 'Comic Sans MS', 'Trebuchet MS', cursive, sans-serif;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            margin: 0;
-            padding: 20px;
+            overflow: hidden;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .container {
             text-align: center;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 60px 40px;
-            border-radius: 30px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            max-width: 500px;
+            background: rgba(255, 255, 255, 0.98);
+            padding: 80px 50px;
+            border-radius: 50px;
+            box-shadow: 0 30px 100px rgba(0, 0, 0, 0.4), inset 0 0 50px rgba(255, 255, 255, 0.5);
+            max-width: 600px;
+            border: 5px dashed #ff1493;
+            position: relative;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        .floating-emoji {
+            position: absolute;
+            font-size: 3em;
+            opacity: 0.3;
+            animation: float-around 10s infinite linear;
+        }
+
+        .emoji1 { top: 10%; left: 5%; animation-delay: 0s; }
+        .emoji2 { top: 80%; right: 5%; animation-delay: 2s; }
+        .emoji3 { top: 50%; right: 2%; animation-delay: 4s; }
+        .emoji4 { top: 20%; right: 10%; animation-delay: 6s; }
+        .emoji5 { bottom: 10%; left: 10%; animation-delay: 8s; }
+
+        @keyframes float-around {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(30px, -30px) rotate(90deg); }
+            50% { transform: translate(0, -60px) rotate(180deg); }
+            75% { transform: translate(-30px, -30px) rotate(270deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
         }
 
         h1 {
-            color: #ff6b9d;
-            font-size: 3em;
-            margin: 0 0 20px 0;
-            animation: bounce 2s infinite;
-        }
-
-        p {
-            color: #764ba2;
-            font-size: 1.2em;
-            margin: 15px 0;
-            line-height: 1.6;
-        }
-
-        .emoji-container {
+            background: linear-gradient(90deg, #ff1493, #ff6b9d, #ffd700, #00ced1, #ff1493);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             font-size: 4em;
-            margin: 20px 0;
-            animation: float 3s ease-in-out infinite;
+            margin: 0 0 30px 0;
+            animation: rainbowShift 3s linear infinite, bounce 1.5s ease-in-out infinite;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            letter-spacing: 3px;
+        }
+
+        @keyframes rainbowShift {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
         }
 
         @keyframes bounce {
+            0%, 100% { transform: translateY(0) scaleX(1); }
+            25% { transform: translateY(-30px) scaleX(1.1); }
+            50% { transform: translateY(0) scaleX(1); }
+            75% { transform: translateY(-15px) scaleX(1.05); }
+        }
+
+        p {
+            color: #333;
+            font-size: 1.4em;
+            margin: 20px 0;
+            line-height: 1.8;
+            font-weight: bold;
+        }
+
+        .emoji-container {
+            font-size: 5em;
+            margin: 30px 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .emoji-container span {
+            display: inline-block;
+            animation: spin 3s linear infinite, wobble 2s ease-in-out infinite;
+        }
+
+        .emoji-container span:nth-child(2) { animation-delay: 0.2s, 0.2s; }
+        .emoji-container span:nth-child(3) { animation-delay: 0.4s, 0.4s; }
+        .emoji-container span:nth-child(4) { animation-delay: 0.6s, 0.6s; }
+        .emoji-container span:nth-child(5) { animation-delay: 0.8s, 0.8s; }
+
+        @keyframes spin {
+            0% { transform: rotateZ(0deg); }
+            100% { transform: rotateZ(360deg); }
+        }
+
+        @keyframes wobble {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-20px); }
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+        .fireworks {
+            position: fixed;
+            pointer-events: none;
+        }
+
+        .sparkle {
+            position: fixed;
+            pointer-events: none;
+            animation: sparkleAnimation 2s ease-out forwards;
+        }
+
+        @keyframes sparkleAnimation {
+            0% {
+                opacity: 1;
+                transform: translate(0, 0) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(var(--tx), var(--ty))) scale(0);
+            }
         }
     </style>
 </head>
 <body>
+    <div class="floating-emoji emoji1">🎉</div>
+    <div class="floating-emoji emoji2">🎊</div>
+    <div class="floating-emoji emoji3">🚀</div>
+    <div class="floating-emoji emoji4">⭐</div>
+    <div class="floating-emoji emoji5">🌈</div>
+
     <div class="container">
-        <div class="emoji-container">✨💫⭐</div>
-        <h1>It works! 🚀</h1>
-        <p>You've deployed something amazing with Terraform! 🎉</p>
-        <p>So proud of you! 💕</p>
-        <div class="emoji-container">🎊🌈💖</div>
+        <div class="emoji-container">
+            <span>🎉</span>
+            <span>✨</span>
+            <span>🎊</span>
+            <span>🚀</span>
+            <span>💥</span>
+        </div>
+
+        <h1>IT WORKS!! 🔥</h1>
+
+        <p>YOU DID IT! YOU ABSOLUTE LEGEND!</p>
+        <p>🌟 Terraform deployed like a BOSS 🌟</p>
+        <p>This is EPIC! You're crushing it! 💪</p>
+
+        <div class="emoji-container">
+            <span>🎈</span>
+            <span>💖</span>
+            <span>🎯</span>
+            <span>🏆</span>
+            <span>🌈</span>
+        </div>
     </div>
+
+    <script>
+        // Create random sparkles on click
+        document.addEventListener('click', (e) => {
+            for (let i = 0; i < 8; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.textContent = ['✨', '⭐', '💫', '🌟'][Math.floor(Math.random() * 4)];
+                sparkle.style.left = e.clientX + 'px';
+                sparkle.style.top = e.clientY + 'px';
+                sparkle.style.fontSize = (20 + Math.random() * 20) + 'px';
+
+                const angle = (i / 8) * Math.PI * 2;
+                const velocity = 50 + Math.random() * 100;
+                sparkle.style.setProperty('--tx', Math.cos(angle) * velocity + 'px');
+                sparkle.style.setProperty('--ty', Math.sin(angle) * velocity + 'px');
+
+                document.body.appendChild(sparkle);
+                setTimeout(() => sparkle.remove(), 2000);
+            }
+        });
+
+        // Confetti on load
+        window.addEventListener('load', () => {
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'sparkle';
+                    confetti.textContent = ['🎉', '🎊', '⭐', '✨', '💫', '🌟'][Math.floor(Math.random() * 6)];
+                    confetti.style.left = Math.random() * window.innerWidth + 'px';
+                    confetti.style.top = '-50px';
+                    confetti.style.fontSize = (20 + Math.random() * 30) + 'px';
+                    confetti.style.setProperty('--tx', (Math.random() - 0.5) * 200 + 'px');
+                    confetti.style.setProperty('--ty', window.innerHeight + 100 + 'px');
+
+                    document.body.appendChild(confetti);
+                    setTimeout(() => confetti.remove(), 3000);
+                }, i * 30);
+            }
+        });
+    </script>
 </body>
 </html>
